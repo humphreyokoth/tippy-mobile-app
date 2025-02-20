@@ -1,7 +1,9 @@
 package com.example.tippy
 
-import android.content.ContentValues.TAG
+
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
 import android.widget.SeekBar
@@ -11,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
+
+private const val TAG = "MainActivity"
+private  const val INITIAL_TIP_PERCENT = 15
 class MainActivity : AppCompatActivity() {
     private lateinit var  etBaseAmount: EditText
     private lateinit var  seekBarTip: SeekBar
@@ -28,10 +33,13 @@ class MainActivity : AppCompatActivity() {
         tvTipAmount = findViewById(R.id.tvTipAmount)
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
 
+        seekBarTip.progress = INITIAL_TIP_PERCENT
+        tvTipPercentLabel.text = "$INITIAL_TIP_PERCENT%"
 
         seekBarTip.setOnSeekBarChangeListener(object:SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-               Log.i(TAG, "onProgressChanged")
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+               Log.i(TAG, "onProgressChanged $progress")
+                tvTipPercentLabel.text = "$progress%"
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
@@ -43,10 +51,27 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        etBaseAmount.addTextChangedListener(object :TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                Log.i(TAG,"afterTextChanged $s")
+                computeTipAndTotal()
+            }
+
+        } )
+    }
+
+    private fun computeTipAndTotal() {
+        val  baseAmount=  etBaseAmount.text.toString().toDouble()
+        val tipPercent = seekBarTip.progress
+
+       val tipAmount = baseAmount*tipPercent/100
+
+        val totalAmount = baseAmount + tipAmount
+        tvTipAmount.text = tipAmount.toString()
+        tvTotalAmount.text = totalAmount.toString()
     }
 }
