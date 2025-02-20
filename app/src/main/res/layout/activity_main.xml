@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<!--    Views on the left side-->
     <TextView
         android:id="@+id/tvBaseLabel"
         android:layout_width="wrap_content"
@@ -24,11 +25,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="24%"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
-        app:layout_constraintTop_toBottomOf="@+id/tvBaseLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBaseLabel"
+        tools:text="24%" />
 
     <TextView
         android:id="@+id/tvTotalLabel"
@@ -48,12 +49,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Tip"
-        android:textAppearance="Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvTipPercentLabel" />
 
+<!--    Views on the  right side-->
     <EditText
         android:id="@+id/etBaseAmount"
         android:layout_width="wrap_content"
@@ -80,17 +82,17 @@
         android:id="@+id/tvTipAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2000"
         app:layout_constraintBottom_toBottomOf="@+id/tvTipLabel"
         app:layout_constraintStart_toStartOf="@+id/seekBarTip"
-        app:layout_constraintTop_toTopOf="@+id/tvTipLabel" />
+        app:layout_constraintTop_toTopOf="@+id/tvTipLabel"
+        tools:text="2000" />
 
     <TextView
         android:id="@+id/tvTotalAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5000"
         app:layout_constraintBottom_toBottomOf="@+id/tvTotalLabel"
         app:layout_constraintStart_toStartOf="@+id/tvTipAmount"
-        app:layout_constraintTop_toTopOf="@+id/tvTotalLabel" />
+        app:layout_constraintTop_toTopOf="@+id/tvTotalLabel"
+        tools:text="5000" />
 </androidx.constraintlayout.widget.ConstraintLayout>
