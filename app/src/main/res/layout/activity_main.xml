@@ -35,11 +35,13 @@
         android:id="@+id/tvTotalLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Total"
+        android:text="Total:UGX"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
 
 
@@ -47,12 +49,14 @@
         android:id="@+id/tvTipLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Tip"
+        android:text="Tip:UGX"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTipPercentLabel" />
 
 <!--    Views on the  right side-->
