@@ -101,4 +101,15 @@
         app:layout_constraintStart_toStartOf="@+id/tvTipAmount"
         app:layout_constraintTop_toTopOf="@+id/tvTotalLabel"
         tools:text="5000" />
+
+    <TextView
+        android:id="@+id/tvFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Made By Humphrey 😀"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="114dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
