@@ -4,5 +4,6 @@
         <!-- Customize your dark theme here. -->
          <item name="colorPrimary">@color/primary_green</item>
         <item name="colorPrimaryVariant">@color/darker_blue</item>
+        <item name="android:colorBackground">@color/background_blue</item>
     </style>
 </resources>
